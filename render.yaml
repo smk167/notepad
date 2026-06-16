@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: notepad
+    runtime: node
+    plan: free
+    region: singapore
+    branch: main
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: TURSO_URL
+        sync: false
+      - key: TURSO_TOKEN
+        sync: false
